@@ -1,6 +1,9 @@
 language: java
 script:
   - |
+    sudo add-apt-repository -y ppa:mc3man/trusty-media
+    sudo apt-get -qq update
+    sudo apt-get install -y ffmpeg
     task=$(git diff --name-only $TRAVIS_BRANCH...HEAD | awk -F/ '{print $(NF-1)}' | sort -u | grep task)
     count=`echo $task | wc -w`
     if [ "$count" == "0" ];
