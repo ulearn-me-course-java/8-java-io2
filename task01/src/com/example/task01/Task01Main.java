@@ -7,7 +7,7 @@ import java.io.*;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.println(extractSoundName(new File("/home/wisedog/J.mp3")));
+        System.out.println(extractSoundName(new File("/home/wisedog/JohnL.mp3")));
     }
 
     public static String extractSoundName(File file) throws IOException, InterruptedException {
