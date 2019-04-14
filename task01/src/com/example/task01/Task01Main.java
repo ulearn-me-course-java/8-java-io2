@@ -2,19 +2,26 @@ package com.example.task01;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.*;
+import java.io.*;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
-        // например вот так:
-
-        /*
-        System.out.println(extractSoundName(new File("task01/src/main/resources/3727.mp3")));
-        */
+        System.out.println(extractSoundName(new File("/home/wisedog/JohnLennon.mp3")));//woman
     }
 
     public static String extractSoundName(File file) throws IOException, InterruptedException {
-        // your implementation here
-        return "sound name";
+        Process process = new ProcessBuilder("ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath()).start();
+        String str;
+
+        try (BufferedReader bf = new BufferedReader(
+                new InputStreamReader(process.getInputStream())
+        )) {
+            str = bf.lines().filter(x ->
+                         x.contains("format.tags.title")
+            ).findFirst().orElse(null);
+
+            return str.substring(19, str.length() - 1);
+        }
     }
 }
