@@ -2,8 +2,9 @@ package com.example.task03;
 
 import java.util.Date;
 import java.util.Objects;
+import java.io.Serializable;
 
-public class SampleData {
+public class SampleData implements Serializable {
     static final long serialVersionUID = 132706691457162967L;
 
     String name;
@@ -18,9 +19,13 @@ public class SampleData {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        SampleData that = (SampleData) o;
+        if (this == o)
+            return true;
+
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        SampleData that = (SampleData)o;
         return value == that.value &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(date, that.date);
