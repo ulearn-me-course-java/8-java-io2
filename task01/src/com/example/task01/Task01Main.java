@@ -7,12 +7,13 @@ import java.io.InputStreamReader;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException, InterruptedException {
-        System.out.println(extractSoundName(new File("task01/src/main/resources/3724")));
+        System.out.println(extractSoundName(new File("task01\\src\\main\\resources\\3724")));
     }
 
     public static String extractSoundName(File file) throws IOException, InterruptedException {
 
-        ProcessBuilder pB = new ProcessBuilder("ffprobe -v error -of flat -show_format file.mp3", file.getAbsolutePath());
+        String ffPath = "C:\\Users\\lilit\\OneDrive\\Рабочий стол\\ffmpeg-20190417-8a3ed5a-win64-static\\bin\\ffprobe.exe";
+        ProcessBuilder pB = new ProcessBuilder(ffPath, "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath());
 
         Process process = pB.start();
 
