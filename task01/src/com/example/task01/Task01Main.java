@@ -18,7 +18,6 @@ public class Task01Main {
 
     public static String extractSoundName(File file) throws IOException, InterruptedException {
         String answer;
-        Object  sf;
         ProcessBuilder recognizer = new ProcessBuilder();
         recognizer.command("ffprobe","-v","error", "-of", "flat", "-show_format", file.getPath())
                 .redirectOutput(ProcessBuilder.Redirect.PIPE);
@@ -26,7 +25,7 @@ public class Task01Main {
         Process process = recognizer.start();
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             answer = (String) reader.lines().filter(predicate).toArray()[0];
-            answer = answer.substring(answer.indexOf("\'") + 1, answer.lastIndexOf("\'"));
+            answer = answer.substring(answer.indexOf("\"") + 1, answer.lastIndexOf("\""));
         }
         return answer;
     }
