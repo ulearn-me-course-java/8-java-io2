@@ -1,7 +1,10 @@
 package com.example.task01;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.function.Predicate;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -14,7 +17,17 @@ public class Task01Main {
     }
 
     public static String extractSoundName(File file) throws IOException, InterruptedException {
-        // your implementation here
-        return "sound name";
+        String answer;
+        Object  sf;
+        ProcessBuilder recognizer = new ProcessBuilder();
+        recognizer.command("C:\\Users\\user\\Desctop\\ffprobe\\bin\\ffprobe\\bin\\ffprobe","-v","error", "-of", "flat", "-show_format", file.getPath())
+                .redirectOutput(ProcessBuilder.Redirect.PIPE);
+        Predicate<String> predicate = (s) -> s.indexOf("format.tags.title") == 0;
+        Process process = recognizer.start();
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+            answer = (String) reader.lines().filter(predicate).toArray()[0];
+            answer = answer.substring(answer.indexOf("\'") + 1, answer.lastIndexOf("\'"));
+        }
+        return answer;
     }
 }
