@@ -20,7 +20,7 @@ public class Task01Main {
         String answer;
         Object  sf;
         ProcessBuilder recognizer = new ProcessBuilder();
-        recognizer.command("C:\\Users\\user\\Desctop\\ffprobe\\bin\\ffprobe\\bin\\ffprobe","-v","error", "-of", "flat", "-show_format", file.getPath())
+        recognizer.command("ffprobe","-v","error", "-of", "flat", "-show_format", file.getPath())
                 .redirectOutput(ProcessBuilder.Redirect.PIPE);
         Predicate<String> predicate = (s) -> s.indexOf("format.tags.title") == 0;
         Process process = recognizer.start();
