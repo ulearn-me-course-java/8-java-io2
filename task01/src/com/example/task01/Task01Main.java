@@ -20,7 +20,7 @@ public class Task01Main {
     public static String extractSoundName(File file) throws IOException, InterruptedException {
 
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("C:\\Users\\jek19\\Desktop\\ffmpeg-20190423-a087764-win64-static\\bin\\ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath());
+        processBuilder.command("ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath());
         Process process = processBuilder.start();
         String string = null;
 
