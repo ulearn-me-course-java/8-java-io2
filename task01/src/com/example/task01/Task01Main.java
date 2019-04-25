@@ -18,7 +18,7 @@ public class Task01Main {
         String res = null;
 
         ProcessBuilder processBuilder = new ProcessBuilder();
-        processBuilder.command("C:\\FFmpeg\\bin\\ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath());
+        processBuilder.command("ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath());
 
         Process process = processBuilder.start();
 
