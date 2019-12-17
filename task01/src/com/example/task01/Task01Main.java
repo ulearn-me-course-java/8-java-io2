@@ -13,18 +13,16 @@ public class Task01Main {
     }
 
     public static String extractSoundName(File file) throws IOException, InterruptedException {
-        String name = null;
-        StringBuilder call = new StringBuilder("ffprobe -v error -of flat -show_format ");
-        call.append(file.getAbsolutePath());
-        Process proc = Runtime.getRuntime().exec(call.toString());
-        BufferedReader stdInput = new BufferedReader(new InputStreamReader(proc.getInputStream()));
-        String s = null;
-        while ((s = stdInput.readLine()) != null) {
-            String splitted[] = s.split("=");
-            if (splitted[0].equals("format.tags.title") && splitted.length > 1) {
-                name = splitted[1];
-            }
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath());
+        Process process = processBuilder.start();
+
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+            String[] input = reader.lines().toArray(String[]::new);
+            for (String str : input)
+                if (str.contains("format.tags.title"))
+                    return str.substring(str.lastIndexOf('=') + 2, str.length() - 1);
         }
-        return name;
+        throw new RuntimeException();
     }
 }
