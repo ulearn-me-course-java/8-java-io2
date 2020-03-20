@@ -1,8 +1,10 @@
 package com.example.task02;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
+import java.nio.file.Paths;
+import java.util.*;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -16,8 +18,10 @@ public class Task02Main {
     }
 
     public static List<Path> listFiles(Path rootDir) throws IOException, InterruptedException {
-        // your implementation here
-
-        return null;
+        ArrayList<Path> listOfPaths = new ArrayList<>();
+        Files.walk(rootDir)
+                .filter(path -> Files.isRegularFile(path))
+                .forEach(path -> listOfPaths.add(path));
+        return listOfPaths;
     }
 }
