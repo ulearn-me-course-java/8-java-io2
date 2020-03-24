@@ -5,13 +5,13 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Task01Main {
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
         System.out.println(extractSoundName(new File("task01/src/main/resources/3727.mp3")));
     }
 
-    public static String extractSoundName(File file) throws IOException, InterruptedException {
+    public static String extractSoundName(File file) throws IOException {
         ProcessBuilder pb = new ProcessBuilder();
-        pb.command("/Users/grin/IdeaProjects/8-java-io2/task01/ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath())
+        pb.command("ffprobe", "-v", "error", "-of", "flat", "-show_format", file.getAbsolutePath())
                 .redirectOutput(ProcessBuilder.Redirect.PIPE);
 
         Process prc = pb.start();
