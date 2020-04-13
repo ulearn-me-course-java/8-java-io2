@@ -16,7 +16,8 @@ public class Task01Main {
     public static String extractSoundName(File file) throws IOException, InterruptedException {
         String nameOfSound;
         ProcessBuilder processBuilder = new ProcessBuilder()
-                .command("-v", "error", "-of", "flat","-show_format", file.getAbsolutePath());
+                .command("ffprobe",
+                        "-v", "error", "-of", "flat","-show_format", file.getAbsolutePath());
         Process process = processBuilder.start();
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream()))){
             nameOfSound = getTitle(bufferedReader);
