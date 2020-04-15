@@ -19,3 +19,4 @@ public class Task03Main {
         return (SampleData)object;
     }
 }
+
