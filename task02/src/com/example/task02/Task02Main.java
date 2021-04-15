@@ -1,6 +1,10 @@
 package com.example.task02;
 
+import com.example.task03.SampleData;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -15,9 +19,8 @@ public class Task02Main {
 
     }
 
-    public static List<Path> listFiles(Path rootDir) throws IOException, InterruptedException {
-        // your implementation here
-
-        return null;
+    public static SampleData deserialize(InputStream inputStream) throws IOException, ClassNotFoundException {
+        ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
+        return (SampleData) objectInputStream.readObject();
     }
 }
