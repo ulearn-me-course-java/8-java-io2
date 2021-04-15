@@ -1,10 +1,11 @@
 package com.example.task03;
 
+import java.io.*;
 import java.util.Date;
 import java.util.Objects;
 
-public class SampleData {
-    static final long serialVersionUID = 132706691457162967L;
+public class SampleData implements Serializable {
+    static final long serialVersionUID = 132706691457162967L; // Это уникальный идентификатор версии сериализованного класса.
 
     String name;
     int value;
@@ -39,4 +40,5 @@ public class SampleData {
                 ", date=" + date +
                 '}';
     }
+
 }
