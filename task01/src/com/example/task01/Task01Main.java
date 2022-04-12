@@ -23,6 +23,8 @@ public class Task01Main {
         Process process = processBuilder.start();
         BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
         String trackNameInfo = reader.lines().filter(line -> line .startsWith("format.tags.title")).findFirst().orElse("error");
+        reader.close();
+        process.destroy();
         return trackNameInfo.split("\"", 3)[1];
     }
 }
