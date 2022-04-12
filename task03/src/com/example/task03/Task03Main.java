@@ -2,11 +2,10 @@ package com.example.task03;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
 
 public class Task03Main {
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
-        // например вот так:
+    public static void main(String[] args) {
 
         /*
         System.out.println(deserialize(new FileInputStream("task03/src/main/resources/example1.bin")));
@@ -14,8 +13,11 @@ public class Task03Main {
 
     }
 
-    public static SampleData deserialize(InputStream inputStream) throws IOException, ClassNotFoundException {
-        // your implementation here
-        return null;
+    public static SampleData deserialize(InputStream inputStream) throws IOException, ClassNotFoundException{
+        SampleData deserializedData;
+        try(ObjectInputStream ois = new ObjectInputStream(inputStream)){
+            deserializedData = (SampleData) ois.readObject();
+        }
+        return deserializedData;
     }
 }
