@@ -19,6 +19,8 @@ public class Task03Main {
         // your implementation here
         ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);
         Object readData = objectInputStream.readObject();
+        objectInputStream.close();
+
         return (SampleData)readData;
     }
 }
