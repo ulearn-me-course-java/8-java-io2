@@ -1,5 +1,4 @@
 language: java
-jdk: openjdk8
 script:
   - |
     sudo add-apt-repository -y ppa:mc3man/trusty-media
