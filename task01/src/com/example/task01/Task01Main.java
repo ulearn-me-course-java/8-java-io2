@@ -7,7 +7,6 @@ public class Task01Main {
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
         // например вот так:
 
-
         System.out.println(extractSoundName(new File("task01/src/main/resources/3727.mp3")));
         System.out.println(extractSoundName(new File("task01/src/main/resources/3724.mp3")));
         System.out.println(extractSoundName(new File("task01/src/main/resources/3726.mp3")));
