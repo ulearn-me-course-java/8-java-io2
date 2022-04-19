@@ -10,10 +10,13 @@ import java.io.ObjectOutputStream;
 import java.util.Date;
 import java.util.UUID;
 
-public class Tests {
+public class Tests
+{
     @Test
-    public void test() throws IOException, ClassNotFoundException {
-        for (int i = 0; i < 1000; i++) {
+    public void test() throws IOException, ClassNotFoundException
+    {
+        for (int i = 0; i < 1000; i++)
+        {
             SampleData data = new SampleData(
                     "" + UUID.randomUUID().toString(),
                     (int) System.currentTimeMillis(),
@@ -24,14 +27,16 @@ public class Tests {
             try (
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
                     ObjectOutputStream oos = new ObjectOutputStream(baos);
-            ) {
+            )
+            {
                 oos.writeObject(data);
                 buffer = baos.toByteArray();
             }
 
             try (
                     ByteArrayInputStream bais = new ByteArrayInputStream(buffer)
-            ) {
+            )
+            {
                 SampleData result = Task03Main.deserialize(bais);
                 Assertions.assertThat(result).isEqualTo(data);
             }
