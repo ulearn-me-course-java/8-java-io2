@@ -8,10 +8,12 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class Tests {
+public class Tests
+{
 
     @Test
-    public void testRoot() throws IOException, InterruptedException {
+    public void testRoot() throws IOException, InterruptedException
+    {
         List<Path> list = Task02Main.listFiles(Paths.get("src/main/resources/"));
 
         Assertions.assertThat(list).isNotNull();
@@ -30,7 +32,8 @@ public class Tests {
     }
 
     @Test
-    public void testA() throws IOException, InterruptedException {
+    public void testA() throws IOException, InterruptedException
+    {
         List<Path> list = Task02Main.listFiles(Paths.get("src/main/resources/a/"));
 
         Assertions.assertThat(list).isNotNull();
@@ -45,7 +48,8 @@ public class Tests {
     }
 
     @Test
-    public void testE() throws IOException, InterruptedException {
+    public void testE() throws IOException, InterruptedException
+    {
         List<Path> list = Task02Main.listFiles(Paths.get("src/main/resources/d/e/"));
 
         Assertions.assertThat(list).isNotNull();
