@@ -1,8 +1,13 @@
 package com.example.task02;
 
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.stream.Collectors;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -16,8 +21,6 @@ public class Task02Main {
     }
 
     public static List<Path> listFiles(Path rootDir) throws IOException, InterruptedException {
-        // your implementation here
-
-        return null;
+        return Files.walk(rootDir).filter(x -> Files.isRegularFile(x)).collect(Collectors.toList());
     }
 }
