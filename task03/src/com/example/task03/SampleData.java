@@ -7,9 +7,9 @@ import java.util.Objects;
 public class SampleData implements Serializable {
     static final transient long serialVersionUID = 132706691457162967L;
 
-    private final String name;
-    private final int value;
-    private final Date date;
+    String name;
+    int value;
+    Date date;
 
     public SampleData(String name, int value, Date date) {
         this.name = name;

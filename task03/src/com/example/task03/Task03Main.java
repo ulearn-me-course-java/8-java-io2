@@ -9,7 +9,7 @@ public class Task03Main {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         //здесь вы можете вручную протестировать ваше решение, вызывая реализуемый метод и смотря результат
         // например вот так:
-        System.out.println(deserialize(new FileInputStream("task03/src/main/resources/example1.bin")));
+        System.out.println(deserialize(new FileInputStream("task03/src/main/resources/example2.bin")));
 
 
     }
