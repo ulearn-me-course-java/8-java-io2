@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.task02.Tests" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-12-03T15:13:59" hostname="DESKTOP-1QO41DK" time="0.064">
+  <properties/>
+  <testcase name="testRoot" classname="com.example.task02.Tests" time="0.062"/>
+  <testcase name="testA" classname="com.example.task02.Tests" time="0.0"/>
+  <testcase name="testE" classname="com.example.task02.Tests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
