@@ -2,13 +2,14 @@ package com.example.task03;
 
 import java.util.Date;
 import java.util.Objects;
+import java.io.Serializable;
 
-public class SampleData {
+public class SampleData implements Serializable {
     static final long serialVersionUID = 132706691457162967L;
 
-    String name;
-    int value;
-    Date date;
+    private String name;
+    private int value;
+    private Date date;
 
     public SampleData(String name, int value, Date date) {
         this.name = name;
