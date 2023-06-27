@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.task03.Tests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-12-04T12:27:00" hostname="DESKTOP-CHHPD95" time="0.108">
+  <properties/>
+  <testcase name="test" classname="com.example.task03.Tests" time="0.108"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
