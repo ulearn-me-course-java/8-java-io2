@@ -8,6 +8,8 @@ import java.io.InputStreamReader;
 public class Task01Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println(extractSoundName(new File("task01/src/main/resources/3727.mp3")));
+        System.out.println(extractSoundName(new File("task01/src/main/resources/3724.mp3")));
+        System.out.println(extractSoundName(new File("task01/src/main/resources/3726.mp3")));
 
         Tests tests = new Tests();
         tests.test3724();
