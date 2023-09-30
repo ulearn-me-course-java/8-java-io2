@@ -1,7 +1,6 @@
 package com.example.task01;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 
 public class Task01Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -14,7 +13,22 @@ public class Task01Main {
     }
 
     public static String extractSoundName(File file) throws IOException, InterruptedException {
-        // your implementation here
-        return "sound name";
+
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        processBuilder.command("cmd.exe", "/c", "ffprobe -v error -of flat -show_format " + "\"" + file.getAbsolutePath())
+                .directory(new File("C:\\Users\\User\\Desktop\\JavaLessons\\ffmpeg\\bin"));
+
+        Process process = processBuilder.start();
+
+        try (BufferedReader buffer = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+            String line = buffer.readLine();
+            while (line != null) {
+                if (line.contains("title")) {
+                    return line.split("\"")[1];
+                }
+                line = buffer.readLine();
+            }
+        }
+        return null;
     }
 }
