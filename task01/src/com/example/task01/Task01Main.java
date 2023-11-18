@@ -21,8 +21,8 @@ public class Task01Main {
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
             String str = bufferedReader.readLine();
-            while(str != null) {
-                if(str.contains("format.tags.title")) {
+            while (str != null) {
+                if (str.contains("format.tags.title")) {
                     return str.split("=")[1].replace("\"", "");
                 }
                 str = bufferedReader.readLine();
