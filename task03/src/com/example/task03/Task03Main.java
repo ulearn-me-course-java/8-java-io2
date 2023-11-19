@@ -16,6 +16,8 @@ public class Task03Main {
     }
 
     public static SampleData deserialize(InputStream inputStream) throws IOException, ClassNotFoundException {
-        return (SampleData) (new ObjectInputStream(inputStream)).readObject();
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(inputStream)) {
+            return (SampleData) objectInputStream.readObject();
+        }
     }
 }

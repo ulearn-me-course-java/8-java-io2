@@ -28,7 +28,7 @@ public class Task01Main {
             String line = buffer.readLine();
             while (line != null) {
                 if (line.contains("format.tags.title")) {
-                    return line.split("\"")[1];
+                    return line.substring("format.tags.title=\"".length(), line.length() - 1);
                 }
                 line = buffer.readLine();
             }

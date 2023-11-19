@@ -7,7 +7,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Task02Main {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -22,7 +23,7 @@ public class Task02Main {
     public static List<Path> listFiles(Path rootDir) throws IOException, InterruptedException {
         List<Path> result = new ArrayList<>();
         if (rootDir.toFile().isDirectory()) {
-            for (File item : Objects.requireNonNull(rootDir.toFile().listFiles())) {
+            for (File item : rootDir.toFile().listFiles()) {
                 if (item.isDirectory()) {
                     result.addAll(listFiles(item.toPath()));
                 } else {
@@ -33,3 +34,9 @@ public class Task02Main {
         return result;
     }
 }
+
+    /*
+    try (Stream<Path> paths = Files.walk(rootDir).filter(Files::isRegularFile)){
+        return paths.collect(Collectors.toList());
+    }
+     */
