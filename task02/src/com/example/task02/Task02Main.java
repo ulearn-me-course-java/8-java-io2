@@ -21,6 +21,16 @@ public class Task02Main {
     }
 
     public static List<Path> listFiles(Path rootDir) throws IOException, InterruptedException {
+        try (Stream<Path> paths = Files.walk(rootDir).filter(Files::isRegularFile)){
+            return paths.collect(Collectors.toList());
+        }
+    }
+}
+
+
+
+
+    /*
         List<Path> result = new ArrayList<>();
         if (rootDir.toFile().isDirectory()) {
             for (File item : rootDir.toFile().listFiles()) {
@@ -32,11 +42,4 @@ public class Task02Main {
             }
         }
         return result;
-    }
-}
-
-    /*
-    try (Stream<Path> paths = Files.walk(rootDir).filter(Files::isRegularFile)){
-        return paths.collect(Collectors.toList());
-    }
      */
