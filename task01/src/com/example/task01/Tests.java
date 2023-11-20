@@ -13,16 +13,16 @@ public class Tests {
 
     @Test
     public void test3724() throws IOException, InterruptedException {
-        check(new File("src/main/resources/3724.mp3"), "Knocking On Door");
+        check(new File("task01/src/main/resources/3724.mp3"), "Knocking On Door");
     }
 
     @Test
     public void test3726() throws IOException, InterruptedException {
-        check(new File("src/main/resources/3726.mp3"), "Darth Vader Breath");
+        check(new File("task01/src/main/resources/3726.mp3"), "Darth Vader Breath");
     }
 
     @Test
     public void test3727() throws IOException, InterruptedException {
-        check(new File("src/main/resources/3727.mp3"), "Evil Laugh");
+        check(new File("task01/src/main/resources/3727.mp3"), "Evil Laugh");
     }
 }
