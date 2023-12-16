@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.task02.Tests" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-03-26T09:40:59" hostname="MacBook-Air-Ila.local" time="0.063">
+  <properties/>
+  <testcase name="testRoot" classname="com.example.task02.Tests" time="0.059"/>
+  <testcase name="testA" classname="com.example.task02.Tests" time="0.001"/>
+  <testcase name="testE" classname="com.example.task02.Tests" time="0.001"/>
+  <system-out><![CDATA[src/main/resources/a/c/doc4.txt
+src/main/resources/a/doc3.txt
+src/main/resources/a/doc2.txt
+src/main/resources/d/e/f/doc6.txt
+src/main/resources/d/e/f/doc7.txt
+src/main/resources/d/e/doc5.txt
+src/main/resources/doc1.txt
+src/main/resources/a/c/doc4.txt
+src/main/resources/a/doc3.txt
+src/main/resources/a/doc2.txt
+src/main/resources/d/e/f/doc6.txt
+src/main/resources/d/e/f/doc7.txt
+src/main/resources/d/e/doc5.txt
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
